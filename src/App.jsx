@@ -1,13 +1,25 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useRef, useEffect } from 'react'
 import { Search, MessageCircle, SkipForward, PointerIcon, Users } from 'lucide-react'
 import questions from './questions'
 import './App.css'
 
+const ICON_MAP = {
+  'message-circle': MessageCircle,
+}
+
 function App() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isFlipped, setIsFlipped] = useState(false)
+  const timerRef = useRef(null)
   const total = questions.length
   const question = questions[currentIndex]
+  const CategoryIcon = ICON_MAP[question.icon] || MessageCircle
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current)
+    }
+  }, [])
 
   const handleCardClick = useCallback(() => {
     if (!isFlipped) {
@@ -17,7 +29,7 @@ function App() {
 
   const handleNextCard = useCallback(() => {
     setIsFlipped(false)
-    setTimeout(() => {
+    timerRef.current = setTimeout(() => {
       setCurrentIndex((prev) => (prev + 1) % total)
     }, 300)
   }, [total])
@@ -64,7 +76,7 @@ function App() {
             {/* Card Front */}
             <div className="card-front">
               <div className="category-badge">
-                <MessageCircle className="icon" />
+                <CategoryIcon className="icon" />
                 <span className="cat-text">{question.category}</span>
               </div>
               <p className="question-text">{question.text}</p>
