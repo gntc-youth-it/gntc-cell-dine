@@ -22,6 +22,23 @@ function App() {
   const [discovered, setDiscovered] = useState(new Set())
   const timerRef = useRef(null)
   const total = questions.length
+
+  if (total === 0) {
+    return (
+      <div className="app">
+        <div className="header">
+          <div className="title-block">
+            <span className="game-title">질문 카드</span>
+            <span className="game-subtitle">구역회식</span>
+          </div>
+        </div>
+        <div className="card-deck-area">
+          <p className="question-text">준비된 질문이 없습니다.</p>
+        </div>
+      </div>
+    )
+  }
+
   const question = questions[currentIndex]
   const CategoryIcon = ICON_MAP[question.icon] || MessageCircle
 
