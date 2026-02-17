@@ -7,9 +7,19 @@ const ICON_MAP = {
   'message-circle': MessageCircle,
 }
 
+function getRandomIndex(total, exclude) {
+  if (exclude === null || exclude === undefined) return Math.floor(Math.random() * total)
+  let next
+  do {
+    next = Math.floor(Math.random() * total)
+  } while (next === exclude && total > 1)
+  return next
+}
+
 function App() {
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(() => getRandomIndex(questions.length))
   const [isFlipped, setIsFlipped] = useState(false)
+  const [discovered, setDiscovered] = useState(new Set())
   const timerRef = useRef(null)
   const total = questions.length
   const question = questions[currentIndex]
@@ -24,18 +34,23 @@ function App() {
   const handleCardClick = useCallback(() => {
     if (!isFlipped) {
       setIsFlipped(true)
+      setDiscovered((prev) => {
+        const next = new Set(prev)
+        next.add(currentIndex)
+        return next
+      })
     }
-  }, [isFlipped])
+  }, [isFlipped, currentIndex])
 
   const handleNextCard = useCallback(() => {
     setIsFlipped(false)
     timerRef.current = setTimeout(() => {
-      setCurrentIndex((prev) => (prev + 1) % total)
+      setCurrentIndex((prev) => getRandomIndex(total, prev))
     }, 300)
   }, [total])
 
-  const viewedCount = isFlipped ? currentIndex + 1 : currentIndex
-  const progressWidth = (viewedCount / total) * 100
+  const discoveredCount = discovered.size
+  const progressWidth = (discoveredCount / total) * 100
 
   return (
     <div className="app">
@@ -47,7 +62,7 @@ function App() {
         </div>
         <div className="deck-counter">
           <Search className="icon" />
-          <span className="deck-text">{viewedCount} / {total}</span>
+          <span className="deck-text">{discoveredCount} / {total}</span>
         </div>
       </div>
 
@@ -80,7 +95,7 @@ function App() {
                 <span className="cat-text">{question.category}</span>
               </div>
               <p className="question-text">{question.text}</p>
-              <span className="card-number">{currentIndex + 1} / {total}</span>
+              <span className="card-number">{discoveredCount} / {total}</span>
             </div>
           </div>
         </div>
