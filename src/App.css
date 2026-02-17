@@ -38,15 +38,15 @@
 }
 
 .game-title {
-  font-family: 'Instrument Serif', serif;
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 22px;
-  font-weight: normal;
+  font-weight: 700;
   color: var(--color-text-dark);
   line-height: 1.2;
 }
 
 .game-subtitle {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 12px;
   font-weight: 500;
   color: var(--color-primary);
@@ -198,7 +198,7 @@
 }
 
 .card-back-inner .question-mark {
-  font-family: 'Instrument Serif', serif;
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(48px, 18vw, 72px);
   font-weight: bold;
   color: var(--color-white);
@@ -206,7 +206,7 @@
 }
 
 .card-back-inner .card-label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(9px, 2.8vw, 11px);
   font-weight: 600;
   color: rgba(255, 255, 255, 0.73);
@@ -249,7 +249,7 @@
 }
 
 .category-badge .cat-text {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 10px;
   font-weight: 600;
   color: var(--color-primary);
@@ -257,12 +257,12 @@
 }
 
 .question-text {
-  font-family: 'Instrument Serif', serif;
-  font-size: clamp(18px, 5.5vw, 24px);
-  font-weight: normal;
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(17px, 5vw, 22px);
+  font-weight: 600;
   color: var(--color-text-dark);
   text-align: center;
-  line-height: 1.35;
+  line-height: 1.45;
   word-break: keep-all;
 }
 
@@ -299,7 +299,7 @@
 }
 
 .tap-hint .tap-text {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(12px, 3.5vw, 14px);
   color: var(--color-text-muted);
   white-space: nowrap;
@@ -332,14 +332,14 @@
 }
 
 .next-card-button .next-text {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 16px;
   font-weight: 600;
   color: var(--color-white);
 }
 
 .copyright {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 11px;
   color: rgba(167, 139, 250, 0.27);
   letter-spacing: 1px;
