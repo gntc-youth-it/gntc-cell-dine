@@ -7,11 +7,6 @@ const questions = [
   {
     category: "이유 포함 답변하기",
     icon: "message-circle",
-    text: "평소보다 교회 올 때 가장 열심히 꾸미고 오는거 같은 사람은??",
-  },
-  {
-    category: "이유 포함 답변하기",
-    icon: "message-circle",
     text: "유행이나 유머트렌드에 가장 민감하고 잘 따라가는거 같은 사람은??",
   },
   {
@@ -27,12 +22,12 @@ const questions = [
   {
     category: "이유 포함 답변하기",
     icon: "message-circle",
-    text: "구역 톡방에서 말이 제일 많을거 같은 사람은??(구역장님 제외)",
+    text: "단톡에서 이모티콘 제일 많이 쓸 것 같은 사람은?",
   },
   {
     category: "이유 포함 답변하기",
     icon: "message-circle",
-    text: "평상시에도 찬양을 흥얼거릴거 같은 우리 구역 흥부자는??",
+    text: "고민 상담하면 현실 조언 vs 공감 조언 중 현실 조언 해줄 것 같은 사람은?",
   },
   {
     category: "이유 포함 답변하기",
@@ -47,12 +42,12 @@ const questions = [
   {
     category: "이유 포함 답변하기",
     icon: "message-circle",
-    text: "마음이 힘들 때 가장 먼저 생각나서 연락하고 싶은 '공감 요정'은?",
+    text: "리더 되면 카리스마형일 것 같은 사람은?",
   },
   {
     category: "이유 포함 답변하기",
     icon: "message-circle",
-    text: "나중에 결혼하면 자녀를 정말 예뻐하는 '조카 바보'가 될 것 같은 다정한 사람은?",
+    text: "가족이나 주변 지인이 자녀를 낳으면 조카바보가 될거 같은 사람은?",
   },
   {
     category: "이유 포함 답변하기",
@@ -77,16 +72,6 @@ const questions = [
   {
     category: "이유 포함 답변하기",
     icon: "message-circle",
-    text: "엠비티아이 F, 공감을 잘 할 거 같은 사람은?",
-  },
-  {
-    category: "이유 포함 답변하기",
-    icon: "message-circle",
-    text: "외출 준비하면서 찬양 부를 거 같은 사람은?",
-  },
-  {
-    category: "이유 포함 답변하기",
-    icon: "message-circle",
     text: "나를 표현하는 해시태그를 3개를 붙인다면?",
   },
   {
@@ -103,6 +88,36 @@ const questions = [
     category: "이유 포함 답변하기",
     icon: "message-circle",
     text: "두쫀쿠를 제일 많이 먹을 것 같은 사람은?",
+  },
+  {
+    category: "이유 포함 답변하기",
+    icon: "message-circle",
+    text: "우리 구역이 된 소감을 다섯글자로 표현하자면?",
+  },
+  {
+    category: "이유 포함 답변하기",
+    icon: "message-circle",
+    text: "사람들이 나를 오해하는 부분이 있다면?",
+  },
+  {
+    category: "이유 포함 답변하기",
+    icon: "message-circle",
+    text: "나를 음식으로 표현한다면?",
+  },
+  {
+    category: "이유 포함 답변하기",
+    icon: "message-circle",
+    text: "나를 계절로 표현한다면?",
+  },
+  {
+    category: "이유 포함 답변하기",
+    icon: "message-circle",
+    text: "나에게 일주일의 휴가가 주어진다면 어떻게 보내고싶은지?",
+  },
+  {
+    category: "이유 포함 답변하기",
+    icon: "message-circle",
+    text: "내가 가지고 있는 소소한 로망은?",
   },
 ];
 

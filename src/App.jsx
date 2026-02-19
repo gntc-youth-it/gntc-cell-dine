@@ -127,10 +127,6 @@ function App() {
           </div>
         ) : (
           <>
-            <div className="tap-hint fade-in" key="answer-hint">
-              <Users className="icon" />
-              <span className="tap-text">모두 이 질문에 답해주세요!</span>
-            </div>
             <button className="next-card-button fade-in" onClick={handleNextCard}>
               <SkipForward className="icon" />
               <span className="next-text">다음 카드</span>
