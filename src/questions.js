@@ -12,7 +12,7 @@ const questions = [
   {
     category: "이유 포함 답변하기",
     icon: "message-circle",
-    text: "신앙 상담 할 때 가장 진지하게 대답해줄거 같은 사람은??",
+    text: "상담 할 때 가장 진지하게 대답해줄거 같은 사람은??",
   },
   {
     category: "이유 포함 답변하기",

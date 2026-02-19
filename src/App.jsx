@@ -7,19 +7,9 @@ const ICON_MAP = {
   'message-circle': MessageCircle,
 }
 
-function getRandomIndex(total, exclude) {
-  if (exclude === null || exclude === undefined) return Math.floor(Math.random() * total)
-  let next
-  do {
-    next = Math.floor(Math.random() * total)
-  } while (next === exclude && total > 1)
-  return next
-}
-
 function App() {
-  const [currentIndex, setCurrentIndex] = useState(() => getRandomIndex(questions.length))
+  const [currentIndex, setCurrentIndex] = useState(0)
   const [isFlipped, setIsFlipped] = useState(false)
-  const [discovered, setDiscovered] = useState(new Set())
   const timerRef = useRef(null)
   const total = questions.length
 
@@ -51,23 +41,18 @@ function App() {
   const handleCardClick = useCallback(() => {
     if (!isFlipped) {
       setIsFlipped(true)
-      setDiscovered((prev) => {
-        const next = new Set(prev)
-        next.add(currentIndex)
-        return next
-      })
     }
-  }, [isFlipped, currentIndex])
+  }, [isFlipped])
 
   const handleNextCard = useCallback(() => {
     setIsFlipped(false)
     timerRef.current = setTimeout(() => {
-      setCurrentIndex((prev) => getRandomIndex(total, prev))
+      setCurrentIndex((prev) => (prev + 1) % total)
     }, 300)
   }, [total])
 
-  const discoveredCount = discovered.size
-  const progressWidth = (discoveredCount / total) * 100
+  const cardNumber = currentIndex + 1
+  const progressWidth = (cardNumber / total) * 100
 
   return (
     <div className="app">
@@ -79,7 +64,7 @@ function App() {
         </div>
         <div className="deck-counter">
           <Search className="icon" />
-          <span className="deck-text">{discoveredCount} / {total}</span>
+          <span className="deck-text">{cardNumber} / {total}</span>
         </div>
       </div>
 
@@ -112,7 +97,7 @@ function App() {
                 <span className="cat-text">{question.category}</span>
               </div>
               <p className="question-text">{question.text}</p>
-              <span className="card-number">{discoveredCount} / {total}</span>
+              <span className="card-number">{cardNumber} / {total}</span>
             </div>
           </div>
         </div>
