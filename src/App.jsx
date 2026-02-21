@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef, useEffect, useMemo } from 'react'
+import { useState, useCallback, useRef, useEffect } from 'react'
 import { Search, MessageCircle, SkipForward, PointerIcon, Users } from 'lucide-react'
 import questions from './questions'
 import './App.css'
