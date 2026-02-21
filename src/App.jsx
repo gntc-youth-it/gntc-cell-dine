@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef, useEffect } from 'react'
+import { useState, useCallback, useRef, useEffect, useMemo } from 'react'
 import { Search, MessageCircle, SkipForward, PointerIcon, Users } from 'lucide-react'
 import questions from './questions'
 import './App.css'
@@ -7,11 +7,21 @@ const ICON_MAP = {
   'message-circle': MessageCircle,
 }
 
+function shuffleArray(arr) {
+  const shuffled = [...arr]
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+  }
+  return shuffled
+}
+
 function App() {
+  const [shuffledQuestions] = useState(() => shuffleArray(questions))
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isFlipped, setIsFlipped] = useState(false)
   const timerRef = useRef(null)
-  const total = questions.length
+  const total = shuffledQuestions.length
 
   if (total === 0) {
     return (
@@ -29,7 +39,7 @@ function App() {
     )
   }
 
-  const question = questions[currentIndex]
+  const question = shuffledQuestions[currentIndex]
   const CategoryIcon = ICON_MAP[question.icon] || MessageCircle
 
   useEffect(() => {
